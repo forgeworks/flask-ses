@@ -10,7 +10,7 @@ from setuptools import setup
 setup(
     name='Flask-SES',
     version='1.0',
-    license='BSD',
+    license='MIT',
     author='Stuart Robertson',
     author_email='stooie.robertson@gmail.com',
     description='Flask extension for interfacing with AWS\' SES service',
@@ -26,7 +26,7 @@ setup(
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
