@@ -9,7 +9,8 @@ from setuptools import setup
 
 setup(
     name='Flask-SES',
-    version='1.0',
+    url='https://github.com/stooie90/flask-ses',
+    version='0.1',
     license='MIT',
     author='Stuart Robertson',
     author_email='stooie.robertson@gmail.com',
