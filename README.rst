@@ -6,14 +6,14 @@ Flask-SES is an extension that simplifies interacting with AWS Simple Email Serv
 Installation
 ------------
 
-Install Flask-SES with `pip`:
+Install Flask-SES with `pip` ::
 
     pip install Flask-SES
     
 Example
 -------
 
-This is a quick example on how to set-up the application to send an email using Flask-SES:
+This is a quick example on how to set-up the application to send an email using Flask-SES ::
 
     from flask import Flask
     from flask_ses import SESMailer
@@ -36,4 +36,7 @@ This is a quick example on how to set-up the application to send an email using 
     
 Resources
 ---------
- - [pypi](https://pypi.python.org/pypi/Flask-SES)
+
+* `pypi <https://pypi.python.org/pypi/Flask-SES>`_
+
+
