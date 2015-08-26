@@ -14,7 +14,7 @@ class SESMailer(object):
 
     def init_app(self, app):
         self.app = app
-        self.aws_region = self.app.config.get("AWS_REGION")
+        self.aws_region = self.app.config.get("AWS_REGION") or 'eu-west-1'
         self.aws_access_key_id = self.app.config.get("AWS_ACCESS_KEY_ID")
         self.aws_secret_access_key = self.app.config.get("AWS_SECRET_ACCESS_KEY")
         self.ses_source_email = self.app.config.get("SES_SOURCE_EMAIL")

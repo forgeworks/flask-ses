@@ -9,14 +9,14 @@ from setuptools import setup
 
 setup(
     name='Flask-SES',
-    url='https://github.com/stooie90/flask-ses',
-    version='0.1',
-    license='MIT',
     author='Stuart Robertson',
     author_email='stooie.robertson@gmail.com',
+    version='0.1.1',
+    url='https://github.com/stooie90/flask-ses',
+    license='MIT',
     description='Flask extension for interfacing with AWS\' SES service',
     long_description=__doc__,
-    py_modules=['flask_ses'],
+    packages=['flask_ses'],
     zip_safe=False,
     include_package_data=True,
     platforms='any',
