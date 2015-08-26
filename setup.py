@@ -11,7 +11,7 @@ setup(
     name='Flask-SES',
     author='Stuart Robertson',
     author_email='stooie.robertson@gmail.com',
-    version='0.1.1',
+    version='0.1.2',
     url='https://github.com/stooie90/flask-ses',
     license='MIT',
     description='Flask extension for interfacing with AWS\' SES service',
