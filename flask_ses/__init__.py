@@ -1,10 +1,10 @@
 import boto.ses
 
+from flask import current_app
 try:
     from flask import _app_ctx_stack as stack
 except ImportError:
     from flask import _request_ctx_stack as stack
-
 
 class SESMailer(object):
 
@@ -13,24 +13,21 @@ class SESMailer(object):
             self.init_app(app)
 
     def init_app(self, app):
-        self.app = app
-        self.aws_region = self.app.config.get("AWS_REGION") or 'eu-west-1'
-        self.aws_access_key_id = self.app.config.get("AWS_ACCESS_KEY_ID")
-        self.aws_secret_access_key = self.app.config.get("AWS_SECRET_ACCESS_KEY")
-        self.ses_source_email = self.app.config.get("SES_SOURCE_EMAIL")
-
-    def _connect(self):
-        return boto.ses.connect_to_region(self.aws_region,
-                                          aws_access_key_id=self.aws_access_key_id,
-                                          aws_secret_access_key=self.aws_secret_access_key)
+        pass
+    
+    def connect(self):
+        return boto.ses.connect_to_region(current_app.config['AWS_REGION'],
+                                          aws_access_key_id=current_app.config['AWS_ACCESS_KEY_ID'],
+                                          aws_secret_access_key=current_app.config['AWS_SECRET_ACCESS_KEY'])
 
     @property
     def connection(self):
         ctx = stack.top
         if ctx is not None:
             if not hasattr(ctx, 'ses_connection'):
-                ctx.ses_connection = self._connect()
+                ctx.ses_connection = self.connect()
             return ctx.ses_connection
 
-    def send(self, subject, body, to_addresses, **kwargs):
-        return self.connection.send_email(self.ses_source_email, subject, body, to_addresses, **kwargs)
+    def send(self, subject, body, to_addresses, source=None, **kwargs):
+        source = source or current_app.config['SES_SOURCE_EMAIL']
+        return self.connection.send_email(source, subject, body, to_addresses, **kwargs)
